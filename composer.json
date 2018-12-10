@@ -1,0 +1,29 @@
+{
+  "name": "crossknowledge/ck-stream",
+  "description": "Send / receive csv stream",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "keywords": [
+    "csv",
+    "stream",
+    "propel",
+    "symfony2",
+    "crossknowledge"
+  ],
+  "authors": [
+    {
+      "name": "Kevin De cruz",
+      "email": "kevin.decruz@crossknowledge.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "CrossKnowledge\\ckStream\\": "" }
+  },
+  "require": {
+    "php": ">=5.5",
+    "symfony/symfony": ">=2.6 <4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~3.7"
+  }
+}
