@@ -5,7 +5,7 @@
  * Date: 07/12/18
  */
 
-namespace CrossKnowledge\Stream\CkStreamedResponse;
+namespace CrossKnowledge\Stream;
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -51,7 +51,6 @@ class CkStreamedResponse extends StreamedResponse
                 }
             }
             flush();
-            sleep(5);
             $offSet += $this->queryLimit;
         } while (count($contents) == $this->queryLimit);
         //Nothing to commit but we need to close transaction

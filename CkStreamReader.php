@@ -6,7 +6,7 @@
  * Time: 14:27
  */
 
-namespace CrossKnowledge\Stream\CkStreamReader;
+namespace CrossKnowledge\Stream;
 
 
 class CkStreamReader
