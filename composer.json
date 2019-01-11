@@ -17,7 +17,7 @@
     }
   ],
   "autoload": {
-    "psr-4": { "CrossKnowledge\\ckStream\\": "" }
+    "psr-4": { "CrossKnowledge\\StreamDataBundle\\": "" }
   },
   "require": {
     "php": ">=5.5",
