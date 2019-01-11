@@ -5,7 +5,7 @@
  * Date: 07/12/18
  */
 
-namespace CrossKnowledge\Stream;
+namespace CrossKnowledge\StreamDataBundle;
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
 

@@ -6,7 +6,7 @@
  * Time: 14:27
  */
 
-namespace CrossKnowledge\Stream;
+namespace CrossKnowledge\StreamDataBundle;
 
 
 class CkStreamReader

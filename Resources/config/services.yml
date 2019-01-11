@@ -1,0 +1,6 @@
+services:
+    crosknowledge.stream_data.response:
+        class: CrossKnowledge\StreamDataBundle\CkStreamedResponse
+
+    crosknowledge.stream_data.reader:
+        class: CrossKnowledge\StreamDataBundle\CkStreamReader
