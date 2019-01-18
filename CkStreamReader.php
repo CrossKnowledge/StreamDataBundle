@@ -40,6 +40,8 @@ class CkStreamReader
 
     private $reliquat = '';
 
+    /**
+    */
     public function __construct($uri, $callback = null, $maxDelay = self::UNACTIVITY_DELAY)
     {
         $this->uri = $uri;
