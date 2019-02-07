@@ -1,5 +1,5 @@
 {
-  "name": "crossknowledge/ck-stream",
+  "name": "crossknowledge/streamDataBundle",
   "description": "Send / receive csv stream",
   "type": "symfony-bundle",
   "license": "MIT",
@@ -12,7 +12,7 @@
   ],
   "authors": [
     {
-      "name": "Kevin De cruz",
+      "name": "Kevin De Cruz",
       "email": "kevin.decruz@crossknowledge.com"
     }
   ],

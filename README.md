@@ -1,2 +1,2 @@
-# ck-stream
+# stream data
 

@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kevindecruz
- * Date: 07/12/18
- */
-
-namespace CrossKnowledge\StreamDataBundle;
+namespace CrossKnowledge\StreamDataBundle\StreamCsv;
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-class CkStreamedResponse extends StreamedResponse
+class StreamedResponseextends extends StreamedResponse
 {
     /**
      * Nb lines trigger to flush output and send CSV lines in getLinkedContentAction WS

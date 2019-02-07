@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kevindecruz
- * Date: 10/12/18
- * Time: 14:27
- */
-
-namespace CrossKnowledge\StreamDataBundle;
+namespace CrossKnowledge\StreamDataBundle\StreamCsv;
 
 
-class CkStreamReader
+class StreamReader
 {
     /**
      * 2097152 bytes = 2 Mb
@@ -41,7 +34,7 @@ class CkStreamReader
     private $reliquat = '';
 
     /**
-    */
+     */
     public function __construct($uri, $callback = null, $maxDelay = self::UNACTIVITY_DELAY)
     {
         $this->uri = $uri;
