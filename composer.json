@@ -23,7 +23,7 @@
     "php": ">=5.5",
     "symfony/symfony": ">=2.6 <4.0",
     "guzzlehttp/guzzle" : "6.x",
-    "propel/propel1": "^1.7"
+    "propel/propel1": ">=1.6"
   },
   "require-dev": {
     "phpunit/phpunit": "~3.7"
