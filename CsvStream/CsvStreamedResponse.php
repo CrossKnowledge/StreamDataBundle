@@ -1,9 +1,9 @@
 <?php
-namespace CrossKnowledge\StreamDataBundle\StreamCsv;
+namespace CrossKnowledge\StreamDataBundle\CsvStream;
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-class StreamedResponseextends extends StreamedResponse
+class CsvStreamedResponse extends StreamedResponse
 {
     /**
      * Nb lines trigger to flush output and send CSV lines in getLinkedContentAction WS
@@ -15,14 +15,14 @@ class StreamedResponseextends extends StreamedResponse
      */
     private $queryLimit = 0;
 
-    public function __construct($contentQuery, $status = 200, $headers = array(), $queryLimit = self::STREAM_QUERY_LIMIT)
+    public function __construct(\ModelCriteria $contentQuery, $status = 200, $headers = array(), $queryLimit = self::STREAM_QUERY_LIMIT)
     {
         parent::__construct(
             function() use ($contentQuery) {
                 $this->calbackStream($contentQuery);
             },
             $status,
-            array_merge($headers, [CkStreamReader::HEADER_CONTENT_COUNT => $contentQuery->count()])
+            array_merge($headers, [CsvStreamReader::HEADER_CONTENT_COUNT => $contentQuery->count()])
         );
         $this->queryLimit = $queryLimit;
 

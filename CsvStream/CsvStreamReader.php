@@ -1,8 +1,7 @@
 <?php
-namespace CrossKnowledge\StreamDataBundle\StreamCsv;
+namespace CrossKnowledge\StreamDataBundle\CsvStream;
 
-
-class StreamReader
+class CsvStreamReader
 {
     /**
      * 2097152 bytes = 2 Mb
