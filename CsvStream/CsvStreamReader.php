@@ -42,6 +42,9 @@ class CsvStreamReader
         $this->client = new \GuzzleHttp\Client();
     }
 
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getResponse()
     {
         $response = $this->client->request('GET', $this->uri,
