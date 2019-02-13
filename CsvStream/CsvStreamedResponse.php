@@ -3,6 +3,10 @@ namespace CrossKnowledge\StreamDataBundle\CsvStream;
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * Class CsvStreamedResponse
+ * @package CrossKnowledge\StreamDataBundle\CsvStream
+ */
 class CsvStreamedResponse extends StreamedResponse
 {
     /**
@@ -15,11 +19,18 @@ class CsvStreamedResponse extends StreamedResponse
      */
     private $queryLimit = 0;
 
+    /**
+     * CsvStreamedResponse constructor.
+     * @param \ModelCriteria $contentQuery
+     * @param int $status
+     * @param array $headers
+     * @param int $queryLimit
+     */
     public function __construct(\ModelCriteria $contentQuery, $status = 200, $headers = array(), $queryLimit = self::STREAM_QUERY_LIMIT)
     {
         parent::__construct(
             function() use ($contentQuery) {
-                $this->calbackStream($contentQuery);
+                $this->callbackStream($contentQuery);
             },
             $status,
             array_merge($headers, [CsvStreamReader::HEADER_CONTENT_COUNT => $contentQuery->count()])
@@ -28,7 +39,11 @@ class CsvStreamedResponse extends StreamedResponse
 
     }
 
-    private function calbackStream(\ModelCriteria $contentQuery)
+    /**
+     * @param \ModelCriteria $contentQuery
+     * @throws \PropelException
+     */
+    private function callbackStream(\ModelCriteria $contentQuery)
     {
         //Do all queries in a transaction to avoid insert / update issue between the first and the last query
         //otherwise contentCount should be false

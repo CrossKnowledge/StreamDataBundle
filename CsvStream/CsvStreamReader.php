@@ -1,6 +1,10 @@
 <?php
 namespace CrossKnowledge\StreamDataBundle\CsvStream;
 
+/**
+ * Class CsvStreamReader
+ * @package CrossKnowledge\StreamDataBundle\CsvStream
+ */
 class CsvStreamReader
 {
     /**
@@ -18,21 +22,46 @@ class CsvStreamReader
      */
     const UNACTIVITY_DELAY = 60;
 
+    /**
+     * @var string
+     */
     private $uri = '';
 
+    /**
+     * @var \GuzzleHttp\Client|null
+     */
     private $client = null;
 
+    /**
+     * @var callable
+     */
     private $callback;
 
+    /**
+     * @var int max unactivity delay before closing the connection
+     */
     private $maxDelay;
 
+    /**
+     * @var int total nb items, should be sent in answer header
+     */
     private $contentCountTotal = 0;
 
+    /**
+     * @var int nb items processed
+     */
     private $contentCount = 0;
 
+    /**
+     * @var string last incomplete piece of a csv line.
+     */
     private $reliquat = '';
 
     /**
+     * CsvStreamReader constructor.
+     * @param $uri
+     * @param null $callback
+     * @param int $maxDelay
      */
     public function __construct($uri, $callback = null, $maxDelay = self::UNACTIVITY_DELAY)
     {
@@ -43,6 +72,8 @@ class CsvStreamReader
     }
 
     /**
+     * Will call the callback for each complete bunch of csv lines
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getResponse()
