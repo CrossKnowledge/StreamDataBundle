@@ -50,18 +50,21 @@ class CsvStreamedResponse extends StreamedResponse
         \Propel::getConnection()->beginTransaction();
         $contentQuery->setLimit($this->queryLimit);
         $offSet = 0;
+        $bufferHandler = fopen('php://output', 'w');
         do {
             $contents = $contentQuery
                 ->setOffset($offSet)
                 ->find();
             foreach ($contents as $content) {
-                if (fputcsv(fopen('php://output', 'w'), $content) == false) {
+                if (fputcsv($bufferHandler, $content) == false) {
                     error_log('fputcsv failed on \'php://output\' with content : ' . serialize($content));
                 }
             }
+
             flush();
             $offSet += $this->queryLimit;
         } while (count($contents) == $this->queryLimit);
+        fclose($bufferHandler);
         //Nothing to commit but we need to close transaction
         \Propel::getConnection()->commit();
     }
