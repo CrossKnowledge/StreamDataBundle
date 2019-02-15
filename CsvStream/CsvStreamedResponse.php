@@ -60,11 +60,11 @@ class CsvStreamedResponse extends StreamedResponse
                     error_log('fputcsv failed on \'php://output\' with content : ' . serialize($content));
                 }
             }
-
             flush();
             $offSet += $this->queryLimit;
         } while (count($contents) == $this->queryLimit);
         fclose($bufferHandler);
+        ob_end_flush();
         //Nothing to commit but we need to close transaction
         \Propel::getConnection()->commit();
     }
