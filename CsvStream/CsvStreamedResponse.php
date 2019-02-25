@@ -64,7 +64,9 @@ class CsvStreamedResponse extends StreamedResponse
             $offSet += $this->queryLimit;
         } while (count($contents) == $this->queryLimit);
         fclose($bufferHandler);
+        //@see http://www.php.net/manual/en/features.connection-handling.php#71172
         ob_end_flush();
+        flush();
         //Nothing to commit but we need to close transaction
         \Propel::getConnection()->commit();
     }
